@@ -8,6 +8,10 @@ from urllib.parse import urlparse, urlunparse
 import json
 from datetime import datetime
 import sklearn.tree
+import sklearn
+import streamlit as st
+
+st.sidebar.info(f"Scikit-learn version: {sklearn.__version__}")
 
 # 🔧 Temporary fix for missing 'monotonic_cst' attribute in DecisionTreeClassifier
 if not hasattr(sklearn.tree.DecisionTreeClassifier, "monotonic_cst"):
