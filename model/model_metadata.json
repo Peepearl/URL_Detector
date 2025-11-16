@@ -1,10 +1,10 @@
 {
   "version": "2.0.0",
   "model_type": "Random Forest",
-  "training_date": "2025-11-14 21:43:19",
+  "training_date": "2025-11-16 06:05:57",
   "accuracy": {
-    "training": 0.9978260869565218,
-    "test": 0.9741379310344828
+    "training": 1.0,
+    "test": 0.875
   },
   "features": [
     "Have_IP",
@@ -25,14 +25,14 @@
     "Web_Forwards"
   ],
   "description": "Phishing URL Detection Model - Retrained with new feature extraction",
-  "dataset_size": 576,
-  "training_samples": 460,
-  "test_samples": 116,
+  "dataset_size": 40,
+  "training_samples": 32,
+  "test_samples": 8,
   "notes": [
     "Model retrained with dynamic feature extraction",
     "DNS_Record, Web_Traffic, Domain_Age, and Domain_End are now computed",
     "Some features (Mouse_Over, Right_Click) are always 0 as they represent browser events",
     "Domain_Age and Web_Traffic use heuristics - actual values would require external APIs"
   ],
-  "last_updated": "2025-11-14"
+  "last_updated": "2025-11-16"
 }
