@@ -1,15 +1,16 @@
-import streamlit as st
-import pandas as pd
-import joblib
-import re
 import os
-import socket
-from urllib.parse import urlparse, urlunparse
+import re
 import json
+import socket
 from datetime import datetime
-import sklearn.tree
+
+import ipaddress
+import joblib
+import pandas as pd
 import sklearn
+import sklearn.tree
 import streamlit as st
+from urllib.parse import urlparse, urlunparse
 
 st.sidebar.info(f"Scikit-learn version: {sklearn.__version__}")
 
@@ -214,19 +215,20 @@ def detect_typosquatting(domain):
     return False, best_score, best_match
 
 # --- Feature Extraction Function ---
-def is_valid_ip(ip_string):
-    """Validate if string is a valid IP address (0-255 for each octet)."""
+def have_ip_in_url(url):
+    """
+    Returns 1 if the URL uses a raw IP address as hostname 0 otherwise.
+    """
     try:
-        parts = ip_string.split('.')
-        if len(parts) != 4:
-            return False
-        for part in parts:
-            num = int(part)
-            if num < 0 or num > 255:
-                return False
-        return True
-    except (ValueError, AttributeError):
-        return False
+        hostname = urlparse(url).netloc.split(':')[0]  # strip port if present
+        if not hostname:
+            return 0
+        ipaddress.ip_address(hostname)  # raises ValueError if not valid IP
+        return 1
+    except ValueError:
+        return 0
+    except Exception:
+        return 0
 
 def check_dns_record(domain):
     """Check if domain has valid DNS record."""
@@ -276,11 +278,7 @@ def extract_features(url):
     path = parsed.path
     
     # Feature 1: Have_IP - Check if URL contains valid IP address
-    ip_match = re.search(r'\b(\d{1,3}(?:\.\d{1,3}){3})\b', url)
-    if ip_match:
-        features['Have_IP'] = 1 if is_valid_ip(ip_match.group(1)) else 0
-    else:
-        features['Have_IP'] = 0
+    features['Have_IP'] = have_ip_in_url(url)
     
     # Feature 2: Have_At - Check for @ symbol
     features['Have_At'] = 1 if '@' in url else 0
