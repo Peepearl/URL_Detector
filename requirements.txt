@@ -6,3 +6,4 @@ numpy
 joblib
 datasets
 requests
+ipaddress
