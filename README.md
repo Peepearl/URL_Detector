@@ -122,5 +122,6 @@ Improve evaluation metrics and documentation
 
 Add model explainability (feature importance)
 
-[![Live Demo](https://qqehpwqjuyjdayhw3sqshb.streamlit.app/))
+Live Demo
+(https://qqehpwqjuyjdayhw3sqshb.streamlit.app/))
 
