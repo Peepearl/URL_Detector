@@ -56,9 +56,7 @@ Deployed using Streamlit Community Cloud
 Includes a user feedback form for qualitative evaluation
 
 🔗 Live Demo:
-👉 Add your Streamlit app link here
-
-https://your-streamlit-app-link
+👉 https://qqehpwqjuyjdayhw3sqshb.streamlit.app/
 
 📊 Feature Engineering
 
