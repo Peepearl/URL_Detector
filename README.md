@@ -1,127 +1,151 @@
-🔐 Phishing URL Detection using Machine Learning
+🔍 Phishing URL Detection System
 
-A Machine Learning project focused on detecting phishing and malicious URLs using URL-based features, built and deployed as a web application.
+Machine Learning · Streamlit Deployment
 
-📌 Why This Project?
+Python · Scikit-learn · Streamlit · Security · ML
 
-Phishing attacks remain one of the most common cybersecurity threats. This project explores how machine learning can be applied to real-world security problems by analyzing URL structures to identify potentially malicious links.
+🎯 Overview
 
-The goal of this project was to:
+This project is a machine learning based phishing URL detection system designed to help users identify whether a URL is safe or potentially malicious.
 
-Apply core machine learning concepts to a real dataset
+The model analyzes multiple URL based security indicators commonly associated with phishing attacks and provides real time predictions through an interactive Streamlit web application.
 
-Practice feature engineering
+This project demonstrates practical skills in feature engineering, classical ML modeling, model deployment, and security focused data analysis, making it suitable for AI, ML, and data-focused internship roles.
 
-Train and evaluate a classification model
+✨ Key Features
+🔐 URL-Based Security Analysis
 
-Deploy the model as an interactive web application
+The model evaluates URLs using features such as:
 
-Learn best practices around model consistency and deployment
+Presence of IP addresses in URLs
 
-🧠 What the Model Does
-
-The model classifies a given URL as either:
-
-Safe
-
-Phishing
-
-It relies entirely on URL-based features, making it lightweight and fast, without needing to scrape website content.
-
-🔍 Features Used
-
-The model learns from structural and lexical properties of URLs, including:
-
-Presence of IP addresses instead of domain names
-
-Suspicious characters such as @ and -
+Suspicious symbols like @ or excessive redirects
 
 URL length and depth
 
-Redirection patterns
+Use of URL shortening services
 
-HTTPS usage and domain structure
+Prefix/suffix manipulation in domains
 
-Shortened URL detection
+HTTPS domain inconsistencies
 
-These features are dynamically computed at inference time to ensure consistency between training and deployment.
+These features are commonly observed in phishing and social-engineering attacks.
 
-🛠️ Tech Stack & Skills Demonstrated
+🤖 Machine Learning Model
 
-Python
+Supervised learning using RandomForestClassifier
 
-scikit-learn (classification, model training, serialization)
+Trained on a publicly available phishing URL dataset
 
-Pandas & NumPy (data handling)
+Binary classification:
 
-Feature engineering for ML
+0 → Safe
 
-Model deployment with Streamlit
+1 → Phishing
 
-Git & GitHub (version control, open-source workflow)
+Model serialized using joblib for deployment
 
-🚀 Application Demo
+🌐 Interactive Web App (Streamlit)
 
-The model is deployed using Streamlit, allowing users to test URLs in real time via a simple web interface.
+User-friendly input field for URLs
 
-Workflow:
+Instant prediction feedback (Safe vs Phishing)
 
-User inputs a URL
+Deployed using Streamlit Community Cloud
 
-Features are extracted and validated
+Includes a user feedback form for qualitative evaluation
 
-The trained model predicts phishing vs safe
+🔗 Live Demo:
+👉 Add your Streamlit app link here
 
-The result is displayed instantly
+https://your-streamlit-app-link
 
-🧪 Model Training
+📊 Feature Engineering
 
-Supervised classification approach
+The system extracts structured features directly from raw URLs using Python utilities such as:
 
-Trained on a labeled phishing dataset sourced online
+re (regular expressions)
 
-Model saved using joblib and loaded during deployment
+urllib.parse
 
-Feature consistency between training notebook and app ensured
+ipaddress (standard library for IP detection)
 
-Note: Some features currently act as placeholders due to unavailable external data (e.g. WHOIS). These are documented and planned for improvement.
+This avoids reliance on black-box APIs and keeps the pipeline transparent and reproducible.
 
-📈 Learning Outcomes
+🛠️ Tech Stack
 
-Through this project, I gained hands-on experience with:
+Programming Language: Python 3
 
-Translating raw data into ML-ready features
+ML & Data: pandas, numpy, scikit-learn
 
-Understanding the impact of feature consistency on predictions
+Model Persistence: joblib
 
-Debugging model behavior during deployment
+Web App: Streamlit
 
-Deploying ML models into usable applications
+Version Control: Git & GitHub
 
-Handling real-world feedback and iterative improvement
+🚀 Quick Start
+1️⃣ Clone the Repository
+git clone https://github.com/your-username/URL_Detector.git
+cd URL_Detector
 
-⚠️ Current Limitations
+2️⃣ Install Dependencies
+pip install -r requirements.txt
 
-WHOIS and certificate-based features are not yet implemented
+3️⃣ Run the App Locally
+streamlit run app.py
 
-No website content analysis (HTML, JavaScript)
+🧠 How the Model Works (High Level)
 
-Model decisions are limited to URL-level patterns
+A user inputs a URL
 
-These limitations are intentional for a first version and serve as learning milestones.
+The system extracts security-related features from the URL
+
+The trained ML model evaluates the feature vector
+
+The app displays whether the URL is safe or phishing
+
+This mirrors how real-world URL reputation systems work at a basic level.
+
+📈 Model Evaluation
+
+Model performance was evaluated during training using standard classification metrics (accuracy, precision, recall)
+
+Misclassifications are expected due to:
+
+Evolving phishing tactics
+
+Use of HTTPS by malicious sites
+
+Limited access to live WHOIS or certificate metadata
+
+The project is structured to allow future improvements.
 
 🔮 Planned Improvements
 
-Integrate WHOIS and domain age data
+Add WHOIS-based domain age features
 
-Add website content-based features
+Integrate website content analysis (HTML text patterns)
 
-Character-level vectorization (n-grams)
+Apply character-level vectorization to better detect obfuscated URLs
 
-Improve evaluation metrics and documentation
+Improve dataset balance and retraining strategy
 
-Add model explainability (feature importance)
+Add model metadata and versioning
 
-Live Demo
-(https://qqehpwqjuyjdayhw3sqshb.streamlit.app/))
+🤝 Contributions
 
+Pull requests and suggestions are welcome.
+This project is actively improving as part of continuous learning in AI security and applied machine learning
+
+🙌 Acknowledgments
+
+Public phishing URL datasets used for training
+
+Open source Python and Streamlit communities
+
+Reviewers and contributors who provided feedback via GitHub PRs
+
+fidently in interviews
+
+Just tell me 💙
