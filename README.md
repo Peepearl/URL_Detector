@@ -143,7 +143,3 @@ Public phishing URL datasets used for training
 Open source Python and Streamlit communities
 
 Reviewers and contributors who provided feedback via GitHub PRs
-
-fidently in interviews
-
-Just tell me 💙
